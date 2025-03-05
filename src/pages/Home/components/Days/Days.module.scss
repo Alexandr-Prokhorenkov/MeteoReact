@@ -1,0 +1,100 @@
+.card {
+  padding: 11px;
+  background-color: var(--primary-light);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  max-height: 200px;
+}
+
+.days {
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.dayName {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color-black);
+  margin-bottom: 7px;
+}
+
+.dayInfo {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--light-text-color);
+  margin-bottom: 12px;
+}
+
+.tempDay {
+  color: var(--text-color-black);
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 13px;
+}
+
+.card .info {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--light-text-color);
+  margin-top: 6px;
+}
+
+.tempNight {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--light-text-color);
+}
+
+.tabs {
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabsWrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.tab {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 7px 20px;
+  border-radius: 5px;
+  color: var(--text-color-black);
+  background-color: var(--light-background);
+  &.active {
+    background-color: var(--primary-color);
+    color: var(--text-color-white);
+  }
+}
+
+
+
+.active {
+  color: var(--text-color-white);
+  background-color: var(--primary-color);
+
+}
+
+.tabButton {
+  padding: 7px 20px;
+  border: none;
+  background-color: transparent;
+  color: var(--text-color-black);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.tab .tabButton {
+  box-shadow: var(--box-shadow);
+}
+
+
+
+.tab, .tabButton:hover {
+  cursor: pointer;
+}
