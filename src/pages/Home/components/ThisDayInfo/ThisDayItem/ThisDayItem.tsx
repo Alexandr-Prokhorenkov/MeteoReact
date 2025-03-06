@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from './ThisDayItem.module.scss'
 import { GlobalSvgSelector } from "../../../../../assets/images/icons/GlobalSvgSelector";
 
-interface ThisDayItemProps {
+export interface ThisDayItemProps {
   icon_id: string;
   name: string;
   value: string;

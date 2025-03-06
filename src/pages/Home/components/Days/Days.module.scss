@@ -72,12 +72,9 @@
   }
 }
 
-
-
 .active {
   color: var(--text-color-white);
   background-color: var(--primary-color);
-
 }
 
 .tabButton {
@@ -93,8 +90,7 @@
   box-shadow: var(--box-shadow);
 }
 
-
-
-.tab, .tabButton:hover {
+.tab,
+.tabButton:hover {
   cursor: pointer;
 }
