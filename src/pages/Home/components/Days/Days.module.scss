@@ -1,6 +1,6 @@
 .card {
   padding: 11px;
-  background-color: var(--primary-light);
+  background-color: var(--card-background-default);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -12,12 +12,15 @@
   padding: 20px;
   display: flex;
   gap: 20px;
+  background-color: var(--components-background-default);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .dayName {
   font-size: 18px;
   font-weight: 500;
-  color: var(--text-color-black);
+  color: var(--text-color-default);
   margin-bottom: 7px;
 }
 
@@ -29,7 +32,7 @@
 }
 
 .tempDay {
-  color: var(--text-color-black);
+  color: var(--text-color-default);
   font-size: 18px;
   font-weight: 500;
   margin-top: 13px;
@@ -64,8 +67,8 @@
   font-weight: 400;
   padding: 7px 20px;
   border-radius: 5px;
-  color: var(--text-color-black);
-  background-color: var(--light-background);
+  color: var(--text-color-default);
+  background-color: var(--components-background-default);
   &.active {
     background-color: var(--primary-color);
     color: var(--text-color-white);
@@ -80,8 +83,9 @@
 .tabButton {
   padding: 7px 20px;
   border: none;
-  background-color: transparent;
-  color: var(--text-color-black);
+  background-color: var(--components-background-default);
+  border-radius: 5px;
+  color: var(--text-color-default);
   font-size: 18px;
   font-weight: 400;
 }

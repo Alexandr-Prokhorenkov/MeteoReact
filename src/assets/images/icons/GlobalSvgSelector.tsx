@@ -97,8 +97,8 @@ export const GlobalSvgSelector = ({ id }: GlobalSvgSelectorProps) => {
     case "temp-icon":
       return (
         <svg
-          width="30"
-          height="30"
+          width="19"
+          height="19"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -171,9 +171,9 @@ export const GlobalSvgSelector = ({ id }: GlobalSvgSelectorProps) => {
     case "pressure-icon":
       return (
         <svg
-          width="30"
-          height="30"
-          viewBox="0 0 22 22"
+          width="15"
+          height="15"
+          viewBox="0 -3 19 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -216,8 +216,8 @@ export const GlobalSvgSelector = ({ id }: GlobalSvgSelectorProps) => {
     case "precipitation-icon":
       return (
         <svg
-          width="30"
-          height="30"
+          width="19"
+          height="19"
           viewBox="0 0 19 19"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -255,9 +255,9 @@ export const GlobalSvgSelector = ({ id }: GlobalSvgSelectorProps) => {
     case "wind-icon":
       return (
         <svg
-          width="30"
-          height="30"
-          viewBox="0 0 20 20"
+          width="19"
+          height="19"
+          viewBox="0 0 23 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >

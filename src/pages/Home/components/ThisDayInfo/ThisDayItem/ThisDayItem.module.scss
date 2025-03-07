@@ -1,7 +1,7 @@
 .wrapperBlock {
   display: grid;
   grid-template-columns: 0.1fr 1fr 4fr;
-  gap: 26px;
+  gap: 30px;
   align-items: center;
   z-index: 2;
 }
@@ -18,7 +18,18 @@
 .textBlockDescription {
   font-size: 14px;
   font-weight: 400;
-  color: var(--text-color-black);
+  color: var(--text-color-default);
   display: flex;
   align-items: center;
+}
+
+.icon {
+  svg {
+    background-color: #FFF;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-position: center;
+  }
 }
