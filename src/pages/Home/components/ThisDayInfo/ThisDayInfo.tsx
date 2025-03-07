@@ -30,6 +30,7 @@ export const ThisDayInfo: React.FC = () => {
     <div className={styles.thisDayInfo}>
       {items.map((item) => (
         <ThisDayItem
+          key={item.name}
           icon_id={item.icon_id}
           name={item.name}
           value={item.value}

@@ -1,13 +1,22 @@
-import React from "react";
+import { FC } from "react";
 import styles from "./ThisDay.module.scss";
 import { GlobalSvgSelector } from "../../../../assets/images/icons/GlobalSvgSelector";
+import { Weather } from "../../../../store/types/types";
 
-export const ThisDay: React.FC = () => {
+interface Props {
+  weather: Weather;
+}
+
+export const ThisDay: FC<Props> = ({ weather }: Props) => {
+  if (!weather || !weather.main) {
+    return <div>Загрузка...</div>;
+  }
+
   return (
     <div className={styles.thisDay}>
       <div className={styles.topBlock}>
         <div className={styles.weatherText}>
-          <div className={styles.thisDayTemp}>20°</div>
+          <div className={styles.thisDayTemp}>{weather.main.temp}</div>
           <div className={styles.thisDayText}>Сегодня</div>
         </div>
         <GlobalSvgSelector id="sun-icon" />
