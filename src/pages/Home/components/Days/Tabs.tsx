@@ -10,12 +10,13 @@ export const Tabs: React.FC = () => {
     { value: "На неделю" },
     { value: "На 10 дней" },
     { value: "На месяц" },
-  ];
+  ]
+
   return (
     <div className={styles.tabs}>
       <div className={styles.tabsWrapper}>
         {tabs.map((tab) => (
-          <div key={tab.value} className={styles.tab}>
+          <div tabIndex={0} key={tab.value} className={styles.tab}>
             {tab.value}
           </div>
         ))}

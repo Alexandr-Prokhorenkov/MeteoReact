@@ -1,19 +1,24 @@
-import React from "react";
 import styles from "./ThisDayInfo.module.scss";
 import cloud from "../../../../assets/images/icons/cloud.png";
 import { ThisDayItem } from "./ThisDayItem/ThisDayItem";
+import { Weather } from "../../../../store/types/types";
+import { getPressureDescription } from "../../../../utils/time";
 
-export const ThisDayInfo: React.FC = () => {
+interface Props {
+  weather: Weather;
+}
+
+export const ThisDayInfo = ({ weather }: Props) => {
   const items = [
     {
       icon_id: "temp-icon",
       name: "Температура",
-      value: "20° - ощущается как 17°",
+      value: `${Math.floor(weather.main.temp)}° - ощущается как ${Math.floor(weather.main.feels_like)}°`,
     },
     {
       icon_id: "pressure-icon",
       name: "Давление",
-      value: "765 мм ртутного столба - нормальное",
+      value: `${weather.main.pressure} мм ртутного столба - ${getPressureDescription(weather.main.pressure)}`,
     },
     {
       icon_id: "precipitation-icon",

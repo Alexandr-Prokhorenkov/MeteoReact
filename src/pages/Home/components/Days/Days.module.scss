@@ -98,3 +98,10 @@
 .tabButton:hover {
   cursor: pointer;
 }
+
+.tab:focus-within {
+  background-color: var(--primary-color);
+  color: var(--text-color-dark);
+  border: none;
+  outline: none;
+}

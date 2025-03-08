@@ -7,18 +7,23 @@ type Response = {
   message: string
 }
 
-
 type CurrentWeather = {
   weather: Weather;
   isLoading: boolean;
   response: Response;
+  city: string
 }
 
-
 const initialState : CurrentWeather = {
+  city: "Moscow",
   weather: {
     main: {
-      temp: 0
+      temp: 0,
+      feels_like: 0,
+      pressure: 0,
+    },
+    clouds: {
+      all:0
     }
   },
   isLoading: false,
@@ -50,8 +55,14 @@ export const currentWeatherSlice = createSlice({
         message: action.payload.statusText
       }
     },
+    setCity(state, action: PayloadAction<string>) {
+      state.city = action.payload;
+    }
   }
 })
+
+
+export const { setCity } = currentWeatherSlice.actions;
 
 export default currentWeatherSlice.reducer
 

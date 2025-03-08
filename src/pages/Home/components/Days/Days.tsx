@@ -25,7 +25,7 @@ export const Days: React.FC = () => {
     {
       dayName: "Завтра",
       day_info: "29 авг",
-      icon_id: "small_rain",
+      icon_id: "sun_small_clouds",
       temp_day: "+15",
       temp_night: "+10",
       info: "Небольшой дождь",

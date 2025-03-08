@@ -4,14 +4,21 @@ import { GlobalSvgSelector } from "../../assets/images/icons/GlobalSvgSelector";
 import Select, { StylesConfig } from "react-select";
 import { useTheme } from "../../hooks/useTheme";
 import { Theme } from "../../context/themeContext";
+import { setCity } from "../../store/slices/currenWeatherSlice";
+import { useCustomDispath, useCustomSelector } from "../../hooks/store";
+import { fetchCurrentWeather } from "../../store/thuncks/fetchCurrentWeather";
 
 export const Header: React.FC = () => {
   const theme = useTheme();
+  const dispatch = useCustomDispath();
+  const selectedCity = useCustomSelector((state) => state.currentWeatherSliceReducer.city);
 
   const options = [
     { value: "Moscow", label: "Москва" },
     { value: "Rostov", label: "Ростов" },
     { value: "Krasnodar", label: "Краснодар" },
+    { value: "Paris", label: "Париж" },
+    { value: "Vladivostok", label: "Владивосток" },
   ];
 
   const coloursStyles: StylesConfig<{ value: string; label: string }, false> = {
@@ -30,6 +37,13 @@ export const Header: React.FC = () => {
     theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK: Theme.LIGHT)
   }
 
+  const handleCityChange = (selectedOption: { value: string; label: string } | null) => {
+    if (selectedOption) {
+      dispatch(setCity(selectedOption.value));
+      dispatch(fetchCurrentWeather(selectedOption.value));
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -44,9 +58,10 @@ export const Header: React.FC = () => {
         </div>
         <div className={styles.select}>
           <Select
-            defaultValue={options[0]}
+            value={options.find((opt) => opt.value === selectedCity)}
             styles={coloursStyles}
             options={options}
+            onChange={handleCityChange}
           />
         </div>
       </div>
