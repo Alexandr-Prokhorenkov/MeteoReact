@@ -7,7 +7,7 @@ function App() {
     <div className="container ">
       <Header />
       <Routes>
-        <Route path="/MeteoReact" element={<Home />} />
+        <Route path="/meteoreact" element={<Home />} />
       </Routes>
     </div>
   );
