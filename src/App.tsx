@@ -6,7 +6,6 @@ import { Header } from "./shared/Header/Header";
 function App() {
   return (
     <>
-    {/* <PopUp/> */}
     <div className="container ">
       <Header/>
       <Routes>

@@ -25,7 +25,7 @@ export type Weather = {
 },
 }
 
-type ForecastDay = {
+export type ForecastDay = {
   date: string
   day: {
     maxtemp_c: number
@@ -33,7 +33,15 @@ type ForecastDay = {
     condition: {
       text: string
     }
+    maxwind_kph: number
+
   }
+  hour: [
+    {
+      pressure_in: number
+
+    }
+  ]
 }
 
 export type ForecastWeather = {

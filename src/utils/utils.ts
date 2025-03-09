@@ -3,7 +3,7 @@ const cityTimeZones: { [key: string]: string } = {
   Rostov: "Europe/Moscow",
   Krasnodar: "Europe/Moscow",
   Paris: "Europe/Paris",
-  Vladivostok: "Asia/Vladivostok", // Добавили Владивосток
+  Vladivostok: "Asia/Vladivostok",
 };
 
 /**
@@ -12,11 +12,10 @@ const cityTimeZones: { [key: string]: string } = {
  * @returns Текущее время в формате "ЧЧ:ММ:СС"
  */
 export const getCurrentTime = (city: string): string => {
-  const timeZone = cityTimeZones[city] || "UTC"; // Если город не найден, используем UTC
+  const timeZone = cityTimeZones[city] || "UTC";
   return new Intl.DateTimeFormat("ru-RU", {
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit", // Добавляем секунды
     timeZone,
   }).format(new Date());
 };
@@ -72,18 +71,24 @@ export const translateWeather = (description: string) => {
 };
 
 
-export const getDayOfWeek = (dateString: string): string => {
+export const getDayOfWeek = (
+  dateString: string,
+  format: 'short' | 'long' = 'short'
+): string => {
   const date = new Date(dateString);
   const today = new Date();
   const tomorrow = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
 
   if (date.toDateString() === today.toDateString()) {
-    return "Сегодня";
+    return 'Сегодня';
   } else if (date.toDateString() === tomorrow.toDateString()) {
-    return "Завтра";
+    return 'Завтра';
   } else {
-    const dayOfWeek = date.toLocaleDateString("ru-RU", { weekday: "short" });
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: format,
+    };
+    const dayOfWeek = date.toLocaleDateString('ru-RU', options);
     return dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
   }
 };
@@ -121,3 +126,8 @@ export const getDaysCount = (tabValue: string): number => {
       return 7;
   }
 };
+
+
+export const convertInHgToMmHg = (inHg: number) => {
+  return Math.floor(inHg * 25.4);
+}

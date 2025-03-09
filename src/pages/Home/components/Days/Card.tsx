@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "./Days.module.scss";
-import { GlobalSvgSelector } from "../../../../assets/images/icons/GlobalSvgSelector";
 import { formatDate, getDayOfWeek, weatherIconMap } from "../../../../utils/utils";
+import { GlobalSvgSelector } from "../../../../assets/images/icons/GlobalSvgSelector";
 
 export interface IDay {
   date: string;
@@ -16,9 +16,10 @@ export interface IDay {
 
 interface CardProps {
   day: IDay;
+  onClick: () => void;
 }
 
-export const Card: FC<CardProps> = ({ day }) => {
+export const Card: FC<CardProps> = ({ day, onClick }) => {
   const {
     date,
     day: {
@@ -31,10 +32,8 @@ export const Card: FC<CardProps> = ({ day }) => {
 
   const iconId = weatherIconMap[text.toLowerCase()] || "default";
 
-
-
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={onClick}>
       <p className={styles.dayName}>{getDayOfWeek(date)}</p>
       <p className={styles.dayInfo}>{formatDate(date)}</p>
       <div className={styles.icon}>
