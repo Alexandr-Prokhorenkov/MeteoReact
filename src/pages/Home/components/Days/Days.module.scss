@@ -66,6 +66,15 @@
   margin-bottom: 7px;
   display: flex;
   justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 860px) {
+  .tabs {
+   flex-direction: column;
+   gap: 10px;
+  }
 }
 
 .tabsWrapper {

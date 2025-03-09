@@ -1,7 +1,8 @@
 import { FC } from "react";
 import styles from "./Days.module.scss";
-import { formatDate, getDayOfWeek, weatherIconMap } from "../../../../utils/utils";
+import { weatherIconMap, getDayOfWeek, formatDate } from "../../../../utils/utils";
 import { GlobalSvgSelector } from "../../../../assets/images/icons/GlobalSvgSelector";
+
 
 export interface IDay {
   date: string;

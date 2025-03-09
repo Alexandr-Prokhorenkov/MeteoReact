@@ -53,3 +53,17 @@
   color: var(--light-text-color);
 }
 
+@media screen and (max-width: 460px) {
+  .thisDay {
+    padding: 10px;
+    width: 85%;
+  }
+
+  .weatherIcon {
+    svg {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  
+}

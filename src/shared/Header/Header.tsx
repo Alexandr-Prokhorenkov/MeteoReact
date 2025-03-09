@@ -8,39 +8,51 @@ import { setCity } from "../../store/slices/currenWeatherSlice";
 import { useCustomDispath, useCustomSelector } from "../../hooks/store";
 import { fetchCurrentWeather } from "../../store/thuncks/fetchCurrentWeather";
 import { fetchWeatherForecast } from "../../store/thuncks/weatherThunks";
+import { options } from "../constants";
 
 export const Header: React.FC = () => {
   const theme = useTheme();
   const dispatch = useCustomDispath();
-  const selectedCity = useCustomSelector((state) => state.currentWeatherSliceReducer.city);
-
-  const options = [
-    { value: "Moscow", label: "Москва" },
-    { value: "Saint Petersburg", label: "Санкт-Петербург" },
-    { value: "Rostov", label: "Ростов-на-Дону" },
-    { value: "Krasnodar", label: "Краснодар" },
-    { value: "Paris", label: "Париж" },
-    { value: "Vladivostok", label: "Владивосток" },
-
-  ];
+  const selectedCity = useCustomSelector(
+    (state) => state.currentWeatherSliceReducer.city
+  );
 
   const coloursStyles: StylesConfig<{ value: string; label: string }, false> = {
     control: (styles) => ({
       ...styles,
-      backgroundColor: theme.theme === Theme.LIGHT ? "#4793FF33": 'rgba(79, 79, 79, 1)',
+      backgroundColor: 
+        theme.theme === Theme.LIGHT ? "#4793FF33" : "rgba(79, 79, 79, 1)",
       width: "194px",
       height: "37px",
       border: "none",
       borderRadius: "10px",
     }),
-    singleValue: (styles) => ({ ...styles, color: theme.theme === Theme.LIGHT ? "#000" : "#FFF" }),
+    singleValue: (styles) => ({
+      ...styles,
+      color: theme.theme === Theme.LIGHT ? "#000" : "#FFF",
+    }),
+    menu: (styles) => ({
+      ...styles,
+      backgroundColor:
+        theme.theme === Theme.LIGHT ? "#dae9ff" : "rgba(79, 79, 79, 1)",
+      color: theme.theme === Theme.LIGHT ? "#000" : "#FFF",
+    }), 
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: theme.theme === Theme.LIGHT
+      ? (state.isFocused ? '#b4d1fc' : '#dae9ff')
+      : (state.isFocused ? '#5a5a5a' : 'rgba(79, 79, 79, 1)'),
+      color: theme.theme === Theme.LIGHT ? "#000" : "#FFF",
+    }),
   };
 
   const changeTheme = () => {
-    theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK: Theme.LIGHT)
-  }
+    theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
+  };
 
-  const handleCityChange = (selectedOption: { value: string; label: string } | null) => {
+  const handleCityChange = (
+    selectedOption: { value: string; label: string } | null
+  ) => {
     if (selectedOption) {
       dispatch(setCity(selectedOption.value));
       dispatch(fetchCurrentWeather(selectedOption.value));
