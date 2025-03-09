@@ -37,3 +37,36 @@ export const getPressureDescription = (pressure: number): string => {
   if (pressure >= 1000 && pressure <= 1020) return "нормальное";
   return "повышенное";
 };
+
+
+export const getWindDirection = (deg: number) => {
+  const directions = [
+      "северный", "северо-восток", "восток", "юго-восток",
+      "юг", "юго-запад", "запад", "северо-запад"
+  ];
+  
+  const index = Math.round(deg / 45) % 8;
+  return directions[index];
+}
+
+
+export const getWindDescription = (speed: number) => {
+  if (speed <= 0.2) return "безветренно";
+  if (speed <= 1.5) return "тихий ветер";
+  if (speed <= 3.3) return "лёгкий ветер";
+  if (speed <= 5.4) return "слабый ветер";
+  if (speed <= 7.9) return "умеренный ветер";
+  return "сильный ветер";
+}
+
+export const translateWeather = (description: string) => {
+  const translations: { [key: string]: string } = {
+    "clear sky": "ясное небо",
+    "few clouds": "малооблачно",
+    "scattered clouds": "рассеянные облака",
+    "broken clouds": "облачно с прояснениями",
+    "overcast clouds": "пасмурно",
+  };
+
+  return translations[description] || "Неизвестное описание";
+};

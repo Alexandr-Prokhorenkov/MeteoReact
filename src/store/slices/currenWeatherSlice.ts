@@ -16,7 +16,18 @@ type CurrentWeather = {
 
 const initialState : CurrentWeather = {
   city: "Moscow",
+
   weather: {
+    coord: {
+      lon: 0,
+      lat: 0
+  },
+    weather: [
+      {
+          main: '',
+          description: '',
+      }
+  ],
     main: {
       temp: 0,
       feels_like: 0,
@@ -24,7 +35,12 @@ const initialState : CurrentWeather = {
     },
     clouds: {
       all:0
-    }
+    },
+    wind: {
+      speed: 0,
+      deg: 0,
+      gust: 0,
+  },
   },
   isLoading: false,
   response: {

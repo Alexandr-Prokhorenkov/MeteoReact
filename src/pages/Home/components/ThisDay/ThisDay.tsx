@@ -3,7 +3,10 @@ import styles from "./ThisDay.module.scss";
 import { GlobalSvgSelector } from "../../../../assets/images/icons/GlobalSvgSelector";
 import { Weather } from "../../../../store/types/types";
 import { useCustomSelector } from "../../../../hooks/store";
-import { getCloudinessDescription, getCurrentTime } from "../../../../utils/time";
+import {
+  getCloudinessDescription,
+  getCurrentTime,
+} from "../../../../utils/utils";
 import { cityMapping } from "../constants";
 
 interface Props {
@@ -40,7 +43,9 @@ export const ThisDay = ({ weather }: Props) => {
           <div className={styles.thisDayText}>Сегодня</div>
         </div>
         <div className={styles.weatherIcon}>
-        <GlobalSvgSelector id={getCloudinessDescription(weather.clouds.all)} />
+          <GlobalSvgSelector
+            id={getCloudinessDescription(weather.clouds.all)}
+          />
         </div>
       </div>
       <div className={styles.bottomBlock}>

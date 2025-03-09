@@ -1,8 +1,8 @@
 import { WeatherService } from "../../services/WeatherService";
 import { currentWeatherSlice } from "../slices/currenWeatherSlice";
-import { AppDispath } from "../store";
+import { AppDispatch } from "../store";
 
-export const fetchCurrentWeather = (payload: string) => async(dispatch: AppDispath) => {
+export const fetchCurrentWeather = (payload: string) => async(dispatch: AppDispatch) => {
   try {
     dispatch(currentWeatherSlice.actions.fetchCurrentWeather())
     const res = await WeatherService.getCurrentWeather(payload)

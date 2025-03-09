@@ -15,10 +15,12 @@ export const Header: React.FC = () => {
 
   const options = [
     { value: "Moscow", label: "Москва" },
-    { value: "Rostov", label: "Ростов" },
+    { value: "Saint Petersburg", label: "Санкт-Петербург" },
+    { value: "Rostov", label: "Ростов-на-Дону" },
     { value: "Krasnodar", label: "Краснодар" },
     { value: "Paris", label: "Париж" },
     { value: "Vladivostok", label: "Владивосток" },
+
   ];
 
   const coloursStyles: StylesConfig<{ value: string; label: string }, false> = {

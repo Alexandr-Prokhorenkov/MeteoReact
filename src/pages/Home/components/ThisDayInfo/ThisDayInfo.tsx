@@ -2,7 +2,12 @@ import styles from "./ThisDayInfo.module.scss";
 import cloud from "../../../../assets/images/icons/cloud.png";
 import { ThisDayItem } from "./ThisDayItem/ThisDayItem";
 import { Weather } from "../../../../store/types/types";
-import { getPressureDescription } from "../../../../utils/time";
+import {
+  getPressureDescription,
+  getWindDescription,
+  getWindDirection,
+  translateWeather,
+} from "../../../../utils/utils";
 
 interface Props {
   weather: Weather;
@@ -13,22 +18,28 @@ export const ThisDayInfo = ({ weather }: Props) => {
     {
       icon_id: "temp-icon",
       name: "Температура",
-      value: `${Math.floor(weather.main.temp)}° - ощущается как ${Math.floor(weather.main.feels_like)}°`,
+      value: `${Math.floor(weather.main.temp)}° - ощущается как ${Math.floor(
+        weather.main.feels_like
+      )}°`,
     },
     {
       icon_id: "pressure-icon",
       name: "Давление",
-      value: `${weather.main.pressure} мм ртутного столба - ${getPressureDescription(weather.main.pressure)}`,
+      value: `${
+        weather.main.pressure
+      } мм ртутного столба - ${getPressureDescription(weather.main.pressure)}`,
     },
     {
       icon_id: "precipitation-icon",
       name: "Осадки",
-      value: "Без осадков",
+      value: `${translateWeather(weather.weather[0].description)}`,
     },
     {
       icon_id: "wind-icon",
       name: "Ветер",
-      value: "3 м/с юго-запад - легкий ветер",
+      value: `${Math.floor(weather.wind.speed)}3 м/с ${getWindDirection(
+        weather.wind.deg
+      )} - ${getWindDescription(weather.wind.speed)}`,
     },
   ];
   return (

@@ -1,8 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import currentWeatherSliceReducer from './slices/currenWeatherSlice'
+import weatherForecastSliceReducer from "./slices/weatherForecastSlice";
 
 const rootReducer = combineReducers({
-  currentWeatherSliceReducer
+  currentWeatherSliceReducer,
+  weatherForecastSliceReducer
+
 })
 
 export const store = configureStore({
@@ -14,4 +17,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = typeof store
-export type AppDispath = AppStore['dispatch']
+export type AppDispatch = AppStore['dispatch']
