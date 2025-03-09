@@ -7,15 +7,25 @@
   width: 150px;
   max-height: 300px;
   box-sizing: border-box;
+  transition: background-color 0.3s ease; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  background-color: var(--card-hover-background-default);
+  cursor: pointer;
 }
 
 .days {
   padding: 20px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   background-color: var(--components-background-default);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  height: 100%;
 }
 
 .dayName {
@@ -70,10 +80,16 @@
   border-radius: 5px;
   color: var(--text-color-default);
   background-color: var(--components-background-default);
+  transition: background-color 0.3s ease; 
   &.active {
     background-color: var(--primary-color);
-    color: var(--text-color-white);
+    color: var(--text-color-dark);
   }
+}
+
+.tab:hover {
+  background-color: var(--card-hover-background-default);
+  cursor: pointer;
 }
 
 .active {
@@ -95,9 +111,9 @@
   box-shadow: var(--box-shadow);
 }
 
-.tab,
 .tabButton:hover {
   cursor: pointer;
+  background-color: var(--card-hover-background-default);
 }
 
 .tab:focus-within {

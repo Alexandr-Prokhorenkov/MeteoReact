@@ -106,4 +106,18 @@ export const weatherIconMap: { [key: string]: string } = {
   "гроза": "thunderstorm",
   "дымка": "dymka",
   "местами умеренный снег": "snow",
+  "умеренный или сильный снег": "snow",
+};
+
+export const getDaysCount = (tabValue: string): number => {
+  switch (tabValue) {
+    case "На неделю":
+      return 7;
+    case "На 10 дней":
+      return 10;
+    case "На две недели":
+      return 14;
+    default:
+      return 7;
+  }
 };

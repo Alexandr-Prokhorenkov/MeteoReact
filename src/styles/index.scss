@@ -6,13 +6,15 @@ $text-color-dark:rgba(255, 255, 255, 1);
 $text-color-light:rgba(0, 0, 0, 1);
 $card-background-light: rgba(71, 147, 255, 0.2);
 $card-background-dark: rgba(46, 48, 53, 1);
+$card-hover-background-light: rgba(71, 147, 255, 0.3);
+$card-hover-background-dark: rgb(8, 8, 8);
 $components-background-light: #FFF;
 $components-background-dark: #4f4f4f;
 
 :root {
   --primary-color: rgba(71, 147, 255, 1);
   --light-text-color: rgba(147, 156, 176, 1);
-  --box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  --box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.5);
 
   --body-background-dark: #{$body-background-dark};
   --body-background-light: #{$body-background-light};
@@ -23,6 +25,9 @@ $components-background-dark: #4f4f4f;
   --card-background-light: #{$card-background-light};
   --card-background-dark: #{$card-background-dark};
   --card-background-default: var(#{--card-background-light});
+  --card-hover-background-light: #{$card-hover-background-light};
+  --card-hover-background-dark: #{$card-hover-background-dark};
+  --card-hover-background-default: var(#{--card-hover-background-light});
   --components-background-light: #{$components-background-light};
   --components-background-dark: #{$components-background-dark};
   --components-background-default: var(--components-background-light)
@@ -41,6 +46,6 @@ p {
 
 .container {
   padding-top: 20px;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 }
