@@ -70,3 +70,40 @@ export const translateWeather = (description: string) => {
 
   return translations[description] || "Неизвестное описание";
 };
+
+
+export const getDayOfWeek = (dateString: string): string => {
+  const date = new Date(dateString);
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+
+  if (date.toDateString() === today.toDateString()) {
+    return "Сегодня";
+  } else if (date.toDateString() === tomorrow.toDateString()) {
+    return "Завтра";
+  } else {
+    const dayOfWeek = date.toLocaleDateString("ru-RU", { weekday: "short" });
+    return dayOfWeek.charAt(0).toUpperCase() + dayOfWeek.slice(1);
+  }
+};
+
+
+export const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("ru-RU", { day: "numeric", month: "long" });
+};
+
+
+export const weatherIconMap: { [key: string]: string } = {
+  "солнечно": "sun",
+  "переменная облачность": "cloudy",
+  "облачно": "cloudy",
+  "местами дождь": "small_rain_sun",
+  "умеренный дождь": "rain",
+  "слабый переохлажденный дождь": "rain",
+  "пасмурно": "rain",
+  "гроза": "thunderstorm",
+  "дымка": "dymka",
+  "местами умеренный снег": "snow",
+};

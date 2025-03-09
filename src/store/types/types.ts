@@ -30,9 +30,9 @@ type ForecastDay = {
   day: {
     maxtemp_c: number
     mintemp_c: number
-  }
-  condition: {
-    text: string
+    condition: {
+      text: string
+    }
   }
 }
 

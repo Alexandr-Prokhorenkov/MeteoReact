@@ -2,25 +2,28 @@ import React from "react";
 import styles from "./Days.module.scss";
 import { Card } from "./Card";
 import { Tabs } from "./Tabs";
-import { week } from "./contsants";
-
-export interface IDay {
-  dayName: string;
-  day_info: string;
-  icon_id: string;
-  temp_day: string;
-  temp_night: string;
-  info: string;
-}
+import { selectForecast } from "../../../../store/selectors";
+import { useCustomSelector } from "../../../../hooks/store";
 
 export const Days: React.FC = () => {
+  const { forecast } = useCustomSelector(selectForecast);
 
   return (
     <>
-      <Tabs/>
+      <Tabs />
       <div className={styles.days}>
-        {week.map((day) => (
-          <Card key={day.dayName} day={day} />
+        {forecast?.forecast.forecastday.map((dayData) => (
+          <Card
+            key={dayData.date}
+            day={{
+              date: dayData.date,
+              day: {
+                maxtemp_c: dayData.day.maxtemp_c,
+                mintemp_c: dayData.day.mintemp_c,
+                condition: dayData.day.condition,
+              },
+            }}
+          />
         ))}
       </div>
     </>

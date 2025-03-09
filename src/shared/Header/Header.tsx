@@ -7,6 +7,7 @@ import { Theme } from "../../context/themeContext";
 import { setCity } from "../../store/slices/currenWeatherSlice";
 import { useCustomDispath, useCustomSelector } from "../../hooks/store";
 import { fetchCurrentWeather } from "../../store/thuncks/fetchCurrentWeather";
+import { fetchWeatherForecast } from "../../store/thuncks/weatherThunks";
 
 export const Header: React.FC = () => {
   const theme = useTheme();
@@ -43,6 +44,7 @@ export const Header: React.FC = () => {
     if (selectedOption) {
       dispatch(setCity(selectedOption.value));
       dispatch(fetchCurrentWeather(selectedOption.value));
+      dispatch(fetchWeatherForecast(selectedOption.value, 7));
     }
   };
 
