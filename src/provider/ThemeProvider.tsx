@@ -8,14 +8,15 @@ interface Props {
 }
 
 export const ThemeProvider = ({ children, ...props }: Props) => {
-  const [theme, setTheme] = useState<Theme>(storage.getItem('theme') || Theme.LIGHT);
+  const savedTheme = storage.getItem('theme')
+  const [theme, setTheme] = useState<Theme>(savedTheme === Theme.DARK || savedTheme === Theme.LIGHT ? savedTheme: Theme.LIGHT);
 
   changeCssRootVariables(theme)
 
-  const changeTheme = (theme: Theme) => {
-    storage.setItem('theme', theme)
-    setTheme(theme)
-    changeCssRootVariables(theme)
+  const changeTheme = (newTheme: Theme) => {
+    storage.setItem('theme', newTheme)
+    setTheme(newTheme)
+    changeCssRootVariables(newTheme)
   }
   return <ThemeContext.Provider value={{
     theme, changeTheme
