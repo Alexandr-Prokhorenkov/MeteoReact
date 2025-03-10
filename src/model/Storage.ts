@@ -2,12 +2,10 @@ import { Theme } from "../context/themeContext"
 
 export const storage = {
   setItem: (name: string, item: Theme) => {
-    localStorage.setItem(name, JSON.stringify(item))
+    localStorage.setItem(name, item)
   },
-  getItem: (name: string) => {
-    const item = localStorage.getItem(name)
-    if(item) {
-      return JSON.parse(item)
-    }
+  getItem: (name: string): Theme | null => {
+    const item = localStorage.getItem(name);
+    return item === Theme.DARK || item === Theme.LIGHT ? item : null;
   }
 }
